@@ -1,4 +1,8 @@
 # Logs
+isomorphic
+www
+public
+web-app/build
 logs
 *.log
 npm-debug.log*
