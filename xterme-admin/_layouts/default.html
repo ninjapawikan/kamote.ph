@@ -1,0 +1,55 @@
+---
+layout: null
+---
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    {% include meta.html %}
+
+    {% seo %}
+    <!-- Favicon icon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/assets/images/favicon.png"
+    />
+    <title>{{ site.title }}</title>
+    {% include css.html %}
+  </head>
+
+  <body>
+    {% include components/preloader.html %}
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div
+      id="main-wrapper"
+      data-layout="vertical"
+      data-navbarbg="skin5"
+      data-sidebartype="full"
+      data-sidebar-position="absolute"
+      data-header-position="absolute"
+      data-boxed-layout="full"
+    >
+      {% include components/header.html %} {% include components/sidebar.html %}
+      <!-- ============================================================== -->
+      <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Page wrapper  -->
+      <!-- ============================================================== -->
+      <div class="page-wrapper">
+        {{ content }}
+        {% include components/footer.html %}
+      </div>
+      <!-- ============================================================== -->
+      <!-- End Page wrapper  -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    {% include scripts.html %}
+  </body>
+</html>
