@@ -1,0 +1,44 @@
+/* Webfont: Ride */@font-face {
+    font-family: 'Ride';
+    src: url('/fonts/Ride.eot'); /* IE9 Compat Modes */
+    src: url('/fonts/Ride.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/fonts/Ride.woff') format('woff'), /* Modern Browsers */
+         url('/fonts/Ride.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/fonts/Ride.svg#Ride') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+/* Webfont: Ride-Italic */@font-face {
+    font-family: 'Ride';
+    src: url('/fonts/Ride-Italic.eot'); /* IE9 Compat Modes */
+    src: url('/fonts/Ride-Italic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/fonts/Ride-Italic.woff') format('woff'), /* Modern Browsers */
+         url('/fonts/Ride-Italic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/fonts/Ride-Italic.svg#Ride-Italic') format('svg'); /* Legacy iOS */
+    font-style: italic;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+/* Webfont: Ride-Bold */@font-face {
+    font-family: 'Ride';
+    src: url('/fonts/Ride-Bold.eot'); /* IE9 Compat Modes */
+    src: url('/fonts/Ride-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/fonts/Ride-Bold.woff') format('woff'), /* Modern Browsers */
+         url('/fonts/Ride-Bold.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/fonts/Ride-Bold.svg#Ride-Bold') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+/* Webfont: Ride-BoldItalic */@font-face {
+    font-family: 'Ride';
+    src: url('/fonts/Ride-BoldItalic.eot'); /* IE9 Compat Modes */
+    src: url('/fonts/Ride-BoldItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/fonts/Ride-BoldItalic.woff') format('woff'), /* Modern Browsers */
+         url('/fonts/Ride-BoldItalic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('/fonts/Ride-BoldItalic.svg#Ride-BoldItalic') format('svg'); /* Legacy iOS */
+    font-style: italic;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}

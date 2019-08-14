@@ -13,7 +13,18 @@
 <script src="/dist/js/sidebarmenu.js"></script>
 <!--Custom JavaScript -->
 <script src="/dist/js/custom.js"></script>
+<script src="/dist/js/dropify.min.js"></script>
 <!--This page JavaScript -->
+{% if page.list %}
+<script>
+    $(document).ready(function () {
+        $('.profilepic').dropify();
+    });
+</script>
+<script src="/dist/js/addnewuser.js"></script>
+<script src="/dist/js/selectuserinfo.js"></script>
+{% endif %}
+
 <!--chartis chart-->
 {% if page.chart %}
 <script src="/assets/libs/chartist/dist/chartist.min.js"></script>
