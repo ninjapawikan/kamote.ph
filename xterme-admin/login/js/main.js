@@ -15,6 +15,14 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         }
 
         document.getElementById('emailaddress').innerHTML = "" + firebaseUser.email;
+        document.getElementById('example-email').value = "" + firebaseUser.email;
+        document.getElementById("userpic").src= firebaseUser.photoURL;
+        if (firebaseUser.displayName != null) {
+            document.getElementById('userName').innerHTML = "" + firebaseUser.displayName;
+            document.getElementById('userproName').innerHTML = "" + firebaseUser.displayName;
+            document.getElementById('example-name').value = "" + firebaseUser.displayName;
+
+        }
 
     } else {
         //   debugger;
@@ -28,6 +36,33 @@ $(document).ready(function () {
 
     /*==================================================================
     [ Validate ]*/
+
+
+    function validate(input) {
+        if ($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
+            if ($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
+                return false;
+            }
+        } else {
+            if ($(input).val().trim() == '') {
+                return false;
+            }
+        }
+    }
+
+    function showValidate(input) {
+        var thisAlert = $(input).parent();
+
+        $(thisAlert).addClass('alert-validate');
+    }
+
+    function hideValidate(input) {
+        var thisAlert = $(input).parent();
+
+        $(thisAlert).removeClass('alert-validate');
+    }
+
+
     var input = $('.validate-input .input100');
 
     $('#loginbtn').on('click', function (e) {
@@ -98,29 +133,82 @@ $(document).ready(function () {
         });
     });
 
-    function validate(input) {
-        if ($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
-            if ($(input).val().trim().match(/^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{1,5}|[0-9]{1,3})(\]?)$/) == null) {
-                return false;
+    $('#updateprofilebtn').click(function (e) {
+        e.preventDefault();
+        var user = firebase.auth().currentUser;
+        var email = $('#example-email').val();
+        var username = $('#example-name').val();
+        var password = $('#password').val();
+        var conpassword = $('#conpassword').val();
+
+        if (password != '' || conpassword != '') {
+
+            if (password == conpassword) {
+                //update password
+                user.updatePassword(password).then(function () {
+                    // Update successful.
+                    toastr.success('Your Password Has Been Updated', 'Success', {
+                        timeOut: 5000
+                    });
+
+
+                    //update email
+                    user.updateEmail(email).then(function () {
+                        // Update successful.
+                        toastr.success('Your Email Has Been Updated', 'Success', {
+                            timeOut: 5000
+                        });
+                    }).catch(function (error) {
+                        // An error happened.
+                        toastr.error(error.message, 'Error', {
+                            timeOut: 5000
+                        });
+                    });
+                    //end email
+
+
+                    //update currentUser info
+                    user.updateProfile({
+                        displayName: username
+                    }).then(function () {
+                        // Update successful.
+                        toastr.success('Your Username Has Been Updated', 'Success', {
+                            timeOut: 5000
+                        });
+                    }).catch(function (error) {
+                        // An error happened.
+                        toastr.error(error.message, 'Error', {
+                            timeOut: 5000
+                        });
+                    });
+                    //end currentUser info
+
+
+                }).catch(function (error) {
+                    // An error happened.
+                    toastr.error(error.message, error.code, {
+                        timeOut: 5000
+                    });
+
+                });
+                //end update password
+            } else {
+                toastr.error('Password Not Match', 'Error', {
+                    timeOut: 5000
+                });
             }
+
         } else {
-            if ($(input).val().trim() == '') {
-                return false;
-            }
+            toastr.error('Password Is Empty', 'Error', {
+                timeOut: 5000
+            });
         }
-    }
 
-    function showValidate(input) {
-        var thisAlert = $(input).parent();
 
-        $(thisAlert).addClass('alert-validate');
-    }
 
-    function hideValidate(input) {
-        var thisAlert = $(input).parent();
 
-        $(thisAlert).removeClass('alert-validate');
-    }
+    });
+
 
 
 });

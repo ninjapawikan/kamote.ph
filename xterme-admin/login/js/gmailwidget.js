@@ -30,9 +30,9 @@ $(document).ready(function(){
           //firebase.auth.PhoneAuthProvider.PROVIDER_ID
         ],
         // Terms of service url.
-        tosUrl: '/about-us/',
+        tosUrl: '/login/',
         // Privacy policy url.
-        privacyPolicyUrl: '/about-us/'
+        privacyPolicyUrl: '/login/'
       };
     ui.start('#firebaseui-auth-container', uiConfig);
     });
