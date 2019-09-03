@@ -15,7 +15,13 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         }
 
         document.getElementById('emailaddress').innerHTML = "" + firebaseUser.email;
-        document.getElementById("userpic").src= firebaseUser.photoURL;
+        
+        if(firebaseUser.photoURL == null){
+            document.getElementById("userpic").src= '/assets/images/users/1.jpg';
+        }else{
+            document.getElementById("userpic").src= firebaseUser.photoURL;
+        }
+
         if ((window.location.href.indexOf('pages-profile') > 0)) {
         document.getElementById('example-email').value = "" + firebaseUser.email;
         }
