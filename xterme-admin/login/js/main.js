@@ -15,12 +15,17 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         }
 
         document.getElementById('emailaddress').innerHTML = "" + firebaseUser.email;
-        document.getElementById('example-email').value = "" + firebaseUser.email;
         document.getElementById("userpic").src= firebaseUser.photoURL;
+        if ((window.location.href.indexOf('pages-profile') > 0)) {
+        document.getElementById('example-email').value = "" + firebaseUser.email;
+        }
+
         if (firebaseUser.displayName != null) {
             document.getElementById('userName').innerHTML = "" + firebaseUser.displayName;
-            document.getElementById('userproName').innerHTML = "" + firebaseUser.displayName;
-            document.getElementById('example-name').value = "" + firebaseUser.displayName;
+            if ((window.location.href.indexOf('pages-profile') > 0)) {
+                document.getElementById('example-name').value = "" + firebaseUser.displayName;
+                }
+
 
         }
 
