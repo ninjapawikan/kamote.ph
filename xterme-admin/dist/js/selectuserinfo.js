@@ -2,6 +2,10 @@ $(document).ready(function () {
     //realtime select in firestore everytime there's new data
     var db = firebase.firestore(); // database
     var storage = firebase.storage(); //firebase storage
+    var qrcode=new QRCode(document.getElementById('qrcodeResult'),{
+		width:200,
+		height:200
+	});
     db.collection("users").onSnapshot(snapshot => {
         snapshot.docChanges().forEach((changed) => {
 
@@ -16,7 +20,7 @@ $(document).ready(function () {
                 <td>${data.car}</td>
                 <td>${data.color}</td>
                 <td>${data.overall_rating}</td>
-                <td><button data-toggle="modal" data-target="#updateinfo" class="btn btn-info" id="updateinfodata">Update Info</button> | <button data-toggle="modal" data-target="#deleteinfo" class="btn btn-danger" id="deleteinfodata">Delete Info</button></td>
+                <td><button data-toggle="modal" data-target="#updateinfo" class="btn btn-info" id="updateinfodata">Update Info</button> | <button data-toggle="modal" data-target="#deleteinfo" class="btn btn-danger" id="deleteinfodata">Delete Info</button> | <button data-toggle="modal" class="btn btn-warning" id="genqr" data-target="#qrcodemodal"><i class="m-r-10 mdi mdi-qrcode-scan"></i> QR Code</button></td>
             </tr>`);
 
                 // update modal set value
@@ -29,8 +33,15 @@ $(document).ready(function () {
                 });
                 //end update
 
+                // qrcode modal set value
+                $('#genqr').click(function () {
+                    //$('input#qrcodeid').val(id);
+                    qrcode.makeCode(id);
+                });
+                //end qrcode
+
                 //delete
-                $('#deleteinfodata').click(function(){
+                $('#deleteinfodata').click(function () {
                     $('#deldocid').val(id);
                 });
                 //end delete
@@ -50,7 +61,7 @@ $(document).ready(function () {
         var color = $('input#updatecolor').val();
         var rating = $('input#updateoverallrating').val();
         var docid = $('input#docid').val();
-        
+
 
         var profilepic = $('#updateprofilepic')[0].files[0]; // get the file name
         if (profilepic == undefined) {
@@ -102,14 +113,14 @@ $(document).ready(function () {
     });
 
 
-    $('#deleteuser').click(function(){
+    $('#deleteuser').click(function () {
         var docid = $('input#deldocid').val();
-        
+
         db.collection('users').doc(docid).delete()
-        .then(function (docRef) {
-            // console.log("Document written with ID: ", docRef);
-            location.reload();
-        })
+            .then(function (docRef) {
+                // console.log("Document written with ID: ", docRef);
+                location.reload();
+            })
     });
 
 

@@ -20,7 +20,7 @@ list: true
         </div>
         <div class="col-7">
             <div class="text-right upgrade-btn">
-             
+
                 <a href="#" class="btn btn-danger text-white" data-toggle="modal" data-target="#addnew">Add New &nbsp;<i
                         class="m-r-10 mdi mdi-account-plus"></i></a>
 
@@ -52,22 +52,29 @@ list: true
                                         </div>
                                     </div>
                                     <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="color" style="width:100%;text-align: left;">Color:</label>
-                                                    <input type="text" class="form-control" id="color">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="overall_rating" style="width:100%;text-align: left;">Overall Rating:</label>
-                                                    <input type="text" class="form-control" id="overallrating">
-                                                </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="color" style="width:100%;text-align: left;">Color:</label>
+                                                <input type="text" class="form-control" id="color">
                                             </div>
                                         </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="overall_rating" style="width:100%;text-align: left;">Overall
+                                                    Rating:</label>
+                                                <input type="text" class="form-control" id="overallrating">
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="form-group">
-                                        <label for="profilepic" style="width:100%;text-align: left;">Profile Picture:</label>
-                                        <input type="file" class="profilepic" id="profilepic"/>
+                                        <label for="profilepic" style="width:100%;text-align: left;">Profile
+                                            Picture:</label>
+                                        <input type="file" class="profilepic" id="profilepic" />
+                                    </div>
+                                    <div class="form-group">
+                                        <div id="qrResult" style="height: 100px;width: 100px">
+
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -80,33 +87,33 @@ list: true
 
                 <!-- update -->
                 <div class="modal fade" id="updateinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Update User Form</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="name" style="width:100%;text-align: left;">Name:</label>
-                                            <input type="text" class="form-control" id="updatename">
-                                            <input type="text" class="form-control" id="docid">
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Update User Form</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="name" style="width:100%;text-align: left;">Name:</label>
+                                                <input type="text" class="form-control" id="updatename">
+                                                <input type="text" class="form-control" id="docid">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="car" style="width:100%;text-align: left;">Car:</label>
+                                                <input type="text" class="form-control" id="updatecar">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="car" style="width:100%;text-align: left;">Car:</label>
-                                            <input type="text" class="form-control" id="updatecar">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
+                                    <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="color" style="width:100%;text-align: left;">Color:</label>
@@ -115,53 +122,89 @@ list: true
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label for="overall_rating" style="width:100%;text-align: left;">Overall Rating:</label>
+                                                <label for="overall_rating" style="width:100%;text-align: left;">Overall
+                                                    Rating:</label>
                                                 <input type="text" class="form-control" id="updateoverallrating">
                                             </div>
                                         </div>
                                     </div>
-                                <div class="form-group">
-                                    <label for="profilepic" style="width:100%;text-align: left;">Profile Picture:</label>
-                                    <input type="file" class="profilepic" id="updateprofilepic" />
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" id="updateuser" data-dismiss="modal">Update</button>
+                                    <div class="form-group">
+                                        <label for="profilepic" style="width:100%;text-align: left;">Profile
+                                            Picture:</label>
+                                        <input type="file" class="profilepic" id="updateprofilepic" />
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" id="updateuser"
+                                    data-dismiss="modal">Update</button>
+                            </div>
                         </div>
                     </div>
-                </div>
                 </div>
 
                 <!-- delete -->
                 <div class="modal fade" id="deleteinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-md" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Delete User Info</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <h2 style="text-align: left">Are Your Want To Delete?</h2>
-                                            <input type="hidden" id="deldocid">
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-md" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Delete User Info</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <h2 style="text-align: left">Are Your Want To Delete?</h2>
+                                                <input type="hidden" id="deldocid">
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" id="deleteuser" data-dismiss="modal">Yes</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" id="deleteuser"
+                                    data-dismiss="modal">Yes</button>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">No</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!-- qrcode -->
+                <div class="modal fade" id="qrcodemodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-md" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">QR Code Info</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <center>
+                                                    <div id="qrcodeResult">
+
+                                                    </div>
+                                                </center>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -186,7 +229,7 @@ list: true
                         <table class="table">
                             <thead class="thead-light">
                                 <tr>
-                                    <th>Profile Pic</th>  
+                                    <th>Profile Pic</th>
                                     <th scope="col">Name</th>
                                     <th scope="col">Car</th>
                                     <th scope="col">Color</th>
