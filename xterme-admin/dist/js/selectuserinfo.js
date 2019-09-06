@@ -36,7 +36,7 @@ $(document).ready(function () {
                 // qrcode modal set value
                 $('#genqr').click(function () {
                     //$('input#qrcodeid').val(id);
-                    qrcode.makeCode(id);
+                    qrcode.makeCode('http://localhost:4000/usercode.html?id='+id);
                 });
                 //end qrcode
 
