@@ -2,14 +2,22 @@ $(document).ready(function () {
     //realtime select in firestore everytime there's new data
     var db = firebase.firestore(); // database
     var storage = firebase.storage(); //firebase storage
-    var qrcode=new QRCode(document.getElementById('qrcodeResult'),{
-		width:200,
-		height:200
-	});
+    var qrcode = new QRCode(document.getElementById('qrcodeResult'), {
+        width: 200,
+        height: 200
+    });
+
+    db.collection('users').doc('4IJQ5z7xoaRgJ0xYypPc').collection('comments').get().then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            //   console.log(${doc.id});
+            var data = doc.data();
+            console.log(data);
+        });
+    });
     db.collection("users").onSnapshot(snapshot => {
         snapshot.docChanges().forEach((changed) => {
 
-            console.log(changed);
+            // console.log(changed);
 
             if (changed.type == 'added') {
                 var id = changed.doc.id;
@@ -36,7 +44,7 @@ $(document).ready(function () {
                 // qrcode modal set value
                 $('#genqr').click(function () {
                     //$('input#qrcodeid').val(id);
-                    qrcode.makeCode('http://localhost:4000/usercode.html?id='+id);
+                    qrcode.makeCode('http://kamote.ph.linkmalloc.com/usercode.html?id=' + id);
                 });
                 //end qrcode
 
