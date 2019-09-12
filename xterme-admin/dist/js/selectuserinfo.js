@@ -6,14 +6,7 @@ $(document).ready(function () {
         width: 200,
         height: 200
     });
-
-    db.collection('users').doc('4IJQ5z7xoaRgJ0xYypPc').collection('comments').get().then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-            //   console.log(${doc.id});
-            var data = doc.data();
-            console.log(data);
-        });
-    });
+    
     db.collection("users").onSnapshot(snapshot => {
         snapshot.docChanges().forEach((changed) => {
 
